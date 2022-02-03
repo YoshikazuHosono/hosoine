@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hosoine/HomePage.dart';
-import 'package:hosoine/NewsPage.dart';
-import 'package:hosoine/TalkPage.dart';
-import 'package:hosoine/VoomPage.dart';
-import 'package:hosoine/WalletPage.dart';
+import 'package:hosoine/page/HomePage.dart';
+import 'package:hosoine/page/NewsPage.dart';
+import 'package:hosoine/page/TalkPage.dart';
+import 'package:hosoine/page/VoomPage.dart';
+import 'package:hosoine/page/WalletPage.dart';
 
 class BottomTabPage extends StatefulWidget {
   const BottomTabPage({Key? key}) : super(key: key);

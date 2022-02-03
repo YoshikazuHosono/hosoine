@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hosoine/BottomTabPage.dart';
+import 'package:hosoine/page/BottomTabPage.dart';
 
 void main() {
   runApp(const MyApp());
