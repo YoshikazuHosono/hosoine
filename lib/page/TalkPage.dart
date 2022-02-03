@@ -5,16 +5,50 @@ class TalkPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Text(
-          "TalkPage",
-          style: TextStyle(
-            fontSize: 20
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("トーク"),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(8),
+        children: const [
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+          ListTile(title: Text("テスト")),
+        ],
       ),
     );
   }
+
 }
