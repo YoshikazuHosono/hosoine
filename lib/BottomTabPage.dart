@@ -27,11 +27,11 @@ class _BottomTabPageState extends State<BottomTabPage> {
       body: _pages.elementAt(_idx),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("ホーム")),
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("トーク")),
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("VOOM")),
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("ニュース")),
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("ウォレット")),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "ホーム"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "トーク"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "VOOM"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "ニュース"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "ウォレット"),
         ],
         currentIndex: _idx,
         fixedColor: Colors.blueAccent,
