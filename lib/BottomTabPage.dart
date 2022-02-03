@@ -28,10 +28,10 @@ class _BottomTabPageState extends State<BottomTabPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "ホーム"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "トーク"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "VOOM"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "ニュース"),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "ウォレット"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label: "トーク"),
+          BottomNavigationBarItem(icon: Icon(Icons.ondemand_video), label: "VOOM"),
+          BottomNavigationBarItem(icon: Icon(Icons.file_copy), label: "ニュース"),
+          BottomNavigationBarItem(icon: Icon(Icons.wallet_travel), label: "ウォレット"),
         ],
         currentIndex: _idx,
         fixedColor: Colors.blueAccent,
