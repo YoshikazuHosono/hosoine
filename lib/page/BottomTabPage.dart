@@ -21,9 +21,6 @@ class _BottomTabPageState extends State<BottomTabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("なび"),
-      ),
       body: _pages.elementAt(_idx),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
