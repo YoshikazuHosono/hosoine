@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hosoine/page/HomePage.dart';
+import 'package:hosoine/page/home_route.dart';
 import 'package:hosoine/page/NewsPage.dart';
 import 'package:hosoine/page/TalkPage.dart';
 import 'package:hosoine/page/VoomPage.dart';
