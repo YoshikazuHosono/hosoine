@@ -8,33 +8,49 @@ class Chat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(_chatroomName),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () => {},
-              ),
+      appBar: AppBar(
+        title: Text(_chatroomName),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () => {},
             ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: IconButton(
-                icon: const Icon(Icons.call),
-                onPressed: () => {},
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: IconButton(
+              icon: const Icon(Icons.call),
+              onPressed: () => {},
             ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: IconButton(
-                icon: const Icon(Icons.dehaze),
-                onPressed: () => {},
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: IconButton(
+              icon: const Icon(Icons.dehaze),
+              onPressed: () => {},
             ),
+          ),
+        ],
+      ),
+      body: const Center(child: Text("チャット")),
+      backgroundColor: Colors.cyan,
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            IconButton(onPressed: () => {}, icon: const Icon(Icons.add)),
+            IconButton(onPressed: () => {}, icon: const Icon(Icons.camera_alt)),
+            IconButton(onPressed: () => {}, icon: const Icon(Icons.photo)),
+            const Expanded(
+                child: TextField(
+                  decoration: InputDecoration(border: OutlineInputBorder(), labelText: "Aa"),
+                )
+            ),
+            IconButton(onPressed: () => {}, icon: const Icon(Icons.mic)),
           ],
         ),
-        body: const Center(child: Text("チャット")),
-        backgroundColor: Colors.cyan);
+      ),
+    );
   }
 }
