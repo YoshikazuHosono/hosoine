@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:hosoine/page/chat_route.dart';
 
-class ChatOverviewTile extends StatelessWidget{
-  const ChatOverviewTile({Key? key}) : super(key: key);
+class ChatOverviewTile extends StatelessWidget {
+  final IconData _icon;
+  final String _chatroomName;
+  final String _recentMsg;
+
+  const ChatOverviewTile(this._icon, this._chatroomName, this._recentMsg, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,16 +16,19 @@ class ChatOverviewTile extends StatelessWidget{
         color: Colors.white,
         child: ListTile(
           leading: CircleAvatar(
-            child: Icon(Icons.chat),
+            child: Icon(_icon),
             backgroundColor: Colors.pink,
           ),
-          title: Text("タイトル"),
-          subtitle: Text("サブタイトル"),
+          title: Text(_chatroomName),
+          subtitle: Text(_recentMsg),
+          onTap: () => {
+            Navigator.push(context, MaterialPageRoute(builder: (ctx) => const Chat()))
+          },
         ),
       ),
       startActionPane: ActionPane(
         motion: const StretchMotion(),
-        children:  [
+        children: [
           SlidableAction(
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
@@ -37,7 +45,7 @@ class ChatOverviewTile extends StatelessWidget{
       ),
       endActionPane: ActionPane(
         motion: const StretchMotion(),
-        children:  [
+        children: [
           SlidableAction(
             backgroundColor: Colors.black,
             foregroundColor: Colors.white,
