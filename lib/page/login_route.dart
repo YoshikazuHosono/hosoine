@@ -1,45 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
-class Login extends StatefulWidget {
+class Login extends HookWidget {
   const Login({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return _LoginState();
-  }
-}
-
-class _LoginState extends State<Login> {
-  var _statusText = ".....";
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  void _userNameChanged(String value) {
-    setState(() {
-      _statusText = "Username change : " + _usernameController.text;
-    });
-  }
-
-  void _userNameSubmitted(String value) {
-    setState(() {
-      _statusText = "Username submit : " + _usernameController.text;
-    });
-  }
-
-  void _passwordChanged(String value) {
-    setState(() {
-      _statusText = "Password change : " + _passwordController.text;
-    });
-  }
-
-  void _passwordSubmitted(String value) {
-    setState(() {
-      _statusText = "Password submit : " + _passwordController.text;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final statusText = useState(".....");
+    final usernameController = useTextEditingController();
+    final passwordController = useTextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("ログイン画面"),
@@ -48,7 +18,7 @@ class _LoginState extends State<Login> {
         padding: const EdgeInsets.all(30),
         child: Column(
           children: [
-            Text(_statusText),
+            Text(statusText.value),
             TextField(
               decoration: const InputDecoration(
                 labelText: "Username (admin)",
@@ -57,9 +27,9 @@ class _LoginState extends State<Login> {
               ),
               autofocus: true,
               keyboardType: TextInputType.text,
-              onChanged: _userNameChanged,
-              onSubmitted: _userNameSubmitted,
-              controller: _usernameController,
+              onChanged: (val) => {statusText.value = "Username change : " + val},
+              onSubmitted: (val) => {statusText.value = "Username submit : " + val},
+              controller: usernameController,
             ),
             TextField(
               decoration: const InputDecoration(
@@ -70,17 +40,13 @@ class _LoginState extends State<Login> {
               autofocus: true,
               keyboardType: TextInputType.text,
               obscureText: true,
-              onChanged: _passwordChanged,
-              onSubmitted: _passwordSubmitted,
-              controller: _passwordController,
+              onChanged: (val) => {statusText.value = "Password change : " + val},
+              onSubmitted: (val) => {statusText.value = "Password submit : " + val},
+              controller: passwordController,
             ),
             ElevatedButton(
               child: const Text("ログイン"),
-              onPressed: () => setState(() {
-                _statusText = "login";
-                _statusText += " username:" + _usernameController.text;
-                _statusText += " password:" + _passwordController.text;
-              }),
+              onPressed: () => {statusText.value = "login username:${usernameController.text} password:${passwordController.text}"},
             ),
           ],
         ),
