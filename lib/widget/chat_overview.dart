@@ -22,7 +22,9 @@ class ChatOverviewTile extends StatelessWidget {
           title: Text(_chatroomName),
           subtitle: Text(_recentMsg),
           onTap: () => {
-            Navigator.push(context, MaterialPageRoute(builder: (ctx) => const Chat()))
+            Navigator.push(context, MaterialPageRoute(
+                builder: (ctx) => Chat(_chatroomName)
+            ))
           },
         ),
       ),
