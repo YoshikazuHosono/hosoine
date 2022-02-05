@@ -1,55 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class Counter extends StatefulWidget {
+final counterProvider = StateProvider((ref) => 0);
+
+class Counter extends ConsumerWidget {
   const Counter({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return _CounterState();
-  }
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final counterWatch = ref.watch(counterProvider.state);
+    final counterRead = ref.read(counterProvider.state);
 
-class _CounterState extends State<Counter> {
-  int _counter = 0;
-
-  void _add() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _reset() {
-    setState(() {
-      _counter = 0;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Counter"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('count:$_counter')],
-          ),
-        ),
-        floatingActionButton: Row(
+      appBar: AppBar(title: const Text('Counter example')),
+      body: Center(
+        // Consumer is a widget that allows you reading providers.
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FloatingActionButton(
-              onPressed: _add,
-              tooltip: 'Add',
-              child: const Icon(Icons.add),
-            ),
-            FloatingActionButton(
-              onPressed: _reset,
-              tooltip: 'Reset',
-              child: const Icon(Icons.remove),
-            ),
-          ],
-        ));
+          children: [Text('count:' + counterWatch.state.toString())],
+        ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            onPressed: () => counterRead.state++,
+            tooltip: 'Add',
+            child: const Icon(Icons.add),
+            heroTag: "hero1", // TODO いや結局これ何よ
+          ),
+          FloatingActionButton(
+            onPressed: () => counterRead.state = 0,
+            tooltip: 'Reset',
+            child: const Icon(Icons.remove),
+            heroTag: "hero2",
+          ),
+        ],
+      ),
+    );
   }
 }
