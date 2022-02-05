@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hosoine/page/counter_route.dart';
-import 'package:hosoine/page/inpute_test_route.dart';
+import 'package:hosoine/page/login_route.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
               ),
               OutlinedButton(
                 child: const Text('LoginSample'),
-                onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: (ctx) => const InputTest()))},
+                onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: (ctx) => const Login()))},
               ),
             ],
           )),

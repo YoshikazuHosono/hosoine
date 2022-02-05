@@ -1,38 +1,40 @@
 import 'package:flutter/material.dart';
 
-class InputTest extends StatefulWidget {
-  const InputTest({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _InputTestState();
+    return _LoginState();
   }
 }
 
-class _InputTestState extends State<InputTest> {
-  String _statusText = ".....";
+class _LoginState extends State<Login> {
+  var _statusText = ".....";
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   void _userNameChanged(String value) {
     setState(() {
-      _statusText = "Username change : $value";
+      _statusText = "Username change : " + _usernameController.text;
     });
   }
 
   void _userNameSubmitted(String value) {
     setState(() {
-      _statusText = "Username submit : $value";
+      _statusText = "Username submit : " + _usernameController.text;
     });
   }
 
   void _passwordChanged(String value) {
     setState(() {
-      _statusText = "Password change : $value";
+      _statusText = "Password change : " + _passwordController.text;
     });
   }
 
   void _passwordSubmitted(String value) {
     setState(() {
-      _statusText = "Password submit : $value";
+      _statusText = "Password submit : " + _passwordController.text;
     });
   }
 
@@ -57,6 +59,7 @@ class _InputTestState extends State<InputTest> {
               keyboardType: TextInputType.text,
               onChanged: _userNameChanged,
               onSubmitted: _userNameSubmitted,
+              controller: _usernameController,
             ),
             TextField(
               decoration: const InputDecoration(
@@ -69,6 +72,15 @@ class _InputTestState extends State<InputTest> {
               obscureText: true,
               onChanged: _passwordChanged,
               onSubmitted: _passwordSubmitted,
+              controller: _passwordController,
+            ),
+            ElevatedButton(
+              child: const Text("ログイン"),
+              onPressed: () => setState(() {
+                _statusText = "login";
+                _statusText += " username:" + _usernameController.text;
+                _statusText += " password:" + _passwordController.text;
+              }),
             ),
           ],
         ),
